@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Interior Design For The Mobile Web</title>
+
+		<meta name="description" content="A presentation about the current state of mobile web and Web Components.">
+		<meta name="author" content="Gregory Mazurek">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides" style="width:1024px;">
+				<section>
+					<h1>Interior Design For The Mobile Web</h1>
+					<p style="font-size:50px;"><a href="http://gregorymazurek.com">Gregory Mazurek</a> / Lead Engineer at Gilt</p>
+				</section>
+
+
+				<section data-background="black">
+					<section>
+						<p style="color:white; font-size:100px;">Why are you here?</p>
+					</section>
+					<section>
+						<p style="color:white; font-size:100px;">You're a designer who wants to stay up on latest trends.</p>
+					</section>
+					<section>
+						<p style="color:white; font-size:100px;">You're an engineer who wants to stay up on latest trends.</p>
+					</section>
+					<section>
+						<p style="color:white; font-size:100px;">You're a manager who wants to make sure her designers and engineers stay up-to-date on the latest trends.</p>
+					</section>
+					<section>
+						<p style="color:white; font-size:100px;">There's beer in the back of the room. Pizza, too.</p>
+					</section>
+				</section>
+
+
+				<section data-background="black">
+					<section>
+						<p style="color:white; font-size:100px;">What problem are we going to solve today?</p>
+					</section>
+					<section>
+						<p style="color:white; font-size:100px;">At Gilt, I work on Gilt mobile web and I love great mobile experiences.</p>
+					</section>
+					<section>
+						<p style="color:white; font-size:100px;">Gilt mobile web<br />vs Gilt full web</p>
+						<p style="color:white; font-size:100px;">Card UI</p>
+						<p style="color:white; font-size:100px;">Web Components</p>
+					</section>
+					<section>
+						<p style="color:white; font-size:100px;">Specifically, how do I think about the mobile web compared to the full web?</p>
+					</section>
+					<section>
+						<p style="color:white; font-size:100px;">What is Card UI?</p>
+					</section>
+					<section>
+						<p style="color:white; font-size:100px;">What are Web Components?</p>
+					</section>
+					<section>
+						<p style="color:white; font-size:100px;">How will Card UI and Web Components make mobile web development easier and better?</p>
+					</section>
+				</section>
+
+
+				<section data-background="white">
+					<h1 style="color:black">Skip Ahead</h1>
+					<p style="color:brown; font-size:140px;">bit.ly/gregui</p>
+					<p style="color:brown; font-size:140px;">bit.ly/githubgreg</p>
+					<p style="color:brown; font-size:40px;">Best viewed on Google Chrome Canary</p>
+				</section>
+
+
+				<section data-background="brown">
+					<section>
+						<p style="font-size:100px;">Think about engineering and designing for the mobile web like you would furnish a NYC apartment.</p>
+					</section>
+
+
+					<section style="background-image:url('lib/images/apartment-large-04.jpg'); height: 900px;">
+						<h2 style="color:black;">The desktop experience:</h2>
+						<h3>There's enough room for everything.</h3>
+						<p style="color:black;"><small>Robert A. M. Stern, 15 CPW [source: StreetEasy]</small></p>
+					</section>
+
+
+					<section>
+						<h2>The mobile experience:</h2>
+						<h3>You can't have everything.</h3>
+						<img src="lib/images/apartment-small-01.jpg" />
+						<p><small>14 Convent Ave [source: StreetEasy]</small></p>
+					</section>
+
+
+					<section>
+						<p style="font-size:100px;">What happens when you furnish a small apartment like it's a big apartment?</p>
+					</section>
+
+
+					<section>
+						<video width="956" height="720" controls>
+	  						<source src="lib/videos/bad-mobile-web.ogv" type="video/ogg">
+						</video>
+						<p><small>m.fidelity.com</small></p>
+					</section>
+
+
+					<section>
+						<p style="font-size:100px;">What happens when you furnish your apartment solely from Ikea?</p>
+					</section>
+
+
+					<section>
+						<img src="lib/images/westelm.png" />
+						<p><small>www.westelm.com</small></p>
+					</section>
+
+
+					<section>
+						<p style="font-size:100px;">What happens when you're embarrassed of your apartment?</p>
+					</section>
+
+
+					<section>
+						<img src="lib/images/mobile-web-quora.png" />
+						<p><small>www.quora.com</small></p>
+					</section>
+
+
+					<section>
+						<p style="font-size:100px;">What happens when you furnished your apartment with ugly things?</p>
+					</section>
+
+
+					<section>
+						<img src="lib/images/mobile-web-united.png" />
+						<p><small>www.united.com</small></p>
+					</section>
+				</section>
+
+
+				<section data-background="black">
+					<section>
+						<p style="font-size:100px;">What does the full Gilt website look like?</p>
+					</section>
+
+					<section>
+						<video width="956" height="720" controls>
+	  						<source src="lib/videos/gilt-full-web-demo.ogv" type="video/ogg">
+						</video>
+					</section>
+				</section>
+
+
+				<section data-background="grey">
+					<section>
+						<p style="font-size:100px;">What does Gilt Mobile Web look like?</p>
+					</section>
+
+
+					<section>
+						<video width="398" height="720" controls>
+	  						<source src="lib/videos/gilt-mobile-web-demo.ogv" type="video/ogg">
+						</video>
+					</section>
+				</section>
+
+
+				<section data-background="#e8af3c">
+					<section>
+						<h1 style="color:black;">Let's break it down a little more.</h1>
+					</section>
+
+					<section>
+						<h3 style="color:black;">Product Listing Page</h3>
+						<video width="398" height="720" controls>
+	  						<source src="lib/videos/gilt-product-listing-page.ogv" type="video/ogg">
+						</video>
+					</section>
+
+					<section>
+						<h3 style="color:black;">Checkout</h3>
+						<video width="398" height="720" controls>
+	  						<source src="lib/videos/gilt-checkout.ogv" type="video/ogg">
+						</video>
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<p style="font-size:100px;">If you can't have it all, how do you choose?</p>
+					</section>
+
+					<section>
+						<p style="font-size:100px;">Keep only the things you need?</p>
+					</section>
+					<section>
+						<p style="font-size:100px;">Keep only the things you love?</p>
+					</section>
+					<section>
+						<p style="font-size:100px;">Keep only the things your user uses?</p>
+					</section>
+
+					<section>
+						<p style="font-size:100px;">In an apartment, it's the bed, the refrigerator, the stove, the lamp.</p>
+					</section>
+
+					<section>
+						<p style="font-size:100px;">For a website, you have to figure out which are the most important items you want to feature.</p>
+					</section>
+				</section>
+
+				<section data-background="white">
+					<section>
+						<h1 style="color:black;">Today: Card UI</h1>
+					</section>
+					<section>
+						<p style="color:black; font-size: 100px;">Framework to help you think about what to feature.</p>
+					</section>
+
+					<section>
+						<p style="color:black; font-size: 65px;">"We are currently witnessing a re-architecture of the web, away from pages and destinations, towards completely personalised experiences built on an aggregation of many individual pieces of content."</p>
+						<p style="color:black;"><small>Intercom: http://insideintercom.io/why-cards-are-the-future-of-the-web/</small></p>
+					</section>
+
+					<section>
+						<p style="color:black; font-size:100px;">It's difficult to find a lot of information about Card UI on the Internet right now. So, this is my assessment of what Card UI is.</p>
+					</section>
+
+					<section>
+						<h1 style="color:black;">These are cards:</h1>
+					</section>
+
+					<section>
+						<img src="lib/images/card-01-mike.jpg" />
+					</section>
+
+					<section>
+						<img src="lib/images/card-02-burger.jpg" />
+					</section>
+
+					<section>
+						<img src="lib/images/card-04-credit-card.png" />
+					</section>
+
+					<section>
+						<h1 style="color:black;">But these are also cards:</h1>
+					</section>
+
+					<section>
+						<h2 style="color:black;">Twitter</h2>
+						<img src="lib/images/card-ui-01.png" />
+					</section>
+
+					<section>
+						<h2 style="color:black;">Google Now</h2>
+						<img src="lib/images/card-ui-02.png" />
+					</section>
+
+					<section>
+						<h2 style="color:black;">Pinterest</h2>
+						<img src="lib/images/card-ui-03.png" />
+					</section>
+
+					<section>
+						<h2 style="color:black;">Gilt</h2>
+						<img src="lib/images/card-ui-04.png" />
+					</section>
+
+					<section>
+						<h1 style="color:black;">3 characteristics of <br />card ui:</h1>
+					</section>
+
+					<section>
+						<h1 style="color:black;">Embeddable/shareable</h1>
+					</section>
+
+					<section>
+						<h1 style="color:black;">Easily Readable Content</h1>
+					</section>
+
+					<section>
+						<h1 style="color:black;">Easy to modify and move around</h1>
+					</section>
+
+					<section>
+						<p style="color:black; font-size:120px;">Card UI isn't really new</p>
+					</section>
+
+					<section>
+						<p style="color:black; font-size:120px;">and it's not a spec</p>
+					</section>
+
+					<section>
+						<p style="color:black; font-size:100px;">it's a design pattern that encourages you to focus on the content that really matters to your users</p>
+					</section>
+
+					<section>
+						<p style="color:black; font-size:100px;">added bonus is that it's standardizing how the front-end looks and feels</p>
+					</section>
+				</section>
+
+
+				<section data-background="brown">
+					<section>
+						<p style="font-size: 100px;">How can we better engineer the Card UI pattern?</p>
+					</section>
+
+
+					<section>
+						<h1>The Future is Web Components.</h1>
+					</section>
+
+
+					<section>
+						<q style="font-size:55px;"> Web Components enable Web application authors to define widgets with a level of visual richness and interactivity not possible with CSS alone, and ease of composition and reuse not possible with script libraries today</q>
+						<p><small><a href="http://www.w3.org/TR/components-intro/#about">W3C's Introduction to Web Components</a></small></p>
+					</section>
+
+
+					<section>
+						<p style="font-size:100px;">In the context of Card UI, imagine each "card" is represented by a DOM element.</p>
+					</section>
+
+
+					<section>
+						<p style="font-size:100px;">Did I lose you?</p>
+					</section>
+
+
+					<section>
+						<p>Take this card, for example:</p>
+						<img src="lib/images/card-ui-04.png" />
+					</section>
+
+
+					<section>
+						<p style="font-size:65px;">Web Components is a standard that would allow me to embed that "card" into my webapp with a DOM element like: </p>
+						<code style="font-size: 115px; line-height: 115px;">&lt;x-gilt-product&gt;&lt;/x-gilt-product&gt;</code>
+					</section>
+
+
+					<section>
+						<p style="font-size:140px;">How?</p>
+					</section>
+
+				</section>
+
+
+				<section data-background="#4387fd">
+					<section>
+						<h1>Web Components</h1>
+						<p style="font-size:75px;">Templates</p>
+						<p style="font-size:75px;">Decorators</p>
+						<p style="font-size:75px;">Custom Elements</p>
+						<p style="font-size:75px;">Shadow DOM</p>
+					</section>
+
+					<section>
+						<p style="font-size:100px;">Templates are inert chunks of markup that can be activated for later use.</p>
+					</section>
+
+					<section>
+						<p style="font-size:100px;">Decorators apply the templates.</p>
+					</section>
+
+					<section>
+						<p style="font-size:100px;">Custom elements are defined by the engineer.</p>
+					</section>
+
+					<section>
+						<p style="font-size:100px;">Shadow DOM encapsulates the DOM tree for more reliable composition of user interface elements.</p>
+					</section>
+
+
+					<section>
+					    <h2>DOM</h2>
+					    <img src="lib/images/code-01.png" />
+					</section>
+
+
+					<section>
+					    <h2>JS</h2>
+					    <img src="lib/images/code-02.png" />
+					</section>
+
+					<section>
+						<h1>Live Demo!</h1>
+					</section>
+
+					<section class="live-demo">
+						<style>
+							.reveal .demo-product {
+								height: 460px;
+								width: 270px;
+								margin: 0 auto;
+								background: white;
+							}
+							.reveal .demo-image-wrapper {
+								height: 360px;
+								width: 269px;
+							}
+							.reveal .demo-details {
+								padding-left: 5px;
+							}
+							.reveal .demo-brand, .reveal .demo-title {
+								text-align: left;
+								color: black;
+								font-size: 19px;
+								height: 25px;
+							}
+							.reveal .demo-price {
+								text-align: left;
+								color: gold;
+								font-size: 19px;
+								height: 25px;
+							}
+							.reveal section img {
+								background: none;
+								border: none;
+								box-shadow: none;
+							}
+						</style>
+						<template id="gilt-product">
+							<div class="demo-product">
+								<a class="demo-product-url" href="">
+									<div class="demo-image-wrapper">
+										<img class="demo-url" src="">
+									</div>
+									<div class="demo-details">
+										<div class="demo-brand">Brand Name</div>
+										<div class="demo-title">Title</div>
+										<div class="demo-price">Price</div>
+									</div>
+								</a>
+							</div>
+						</template>
+
+
+
+						<script>
+							var XFooPrototype = Object.create(HTMLElement.prototype);
+
+							XFooPrototype.createdCallback = function() {
+								var template = document.getElementById("gilt-product");
+								var clone = document.importNode(template.content, true);
+								document.querySelector('.live-demo').appendChild(clone);
+
+								var b = document.querySelector('.demo-brand');
+							    b.textContent = "Paper Crown"; // 2. Modify template's DOM at runtime.
+
+							    var n = document.querySelector('.demo-title');
+							    n.textContent = "Villa Cotton Silk Fit and Flare Dress";
+
+							    var imgSrc = document.querySelector('.demo-url');
+							    imgSrc.src = "http://cdn.gilt.com/images/share/uploads/0000/0003/0305/303051398/list.jpg";
+
+							    var p = document.querySelector('.demo-price');
+							    p.textContent = "$129";
+
+							    var a = document.querySelector('.demo-product-url');
+							    a.href = "http://www.gilt.com/sale/women/paper-crown-9763/product/1020186005-paper-crown-villa-cotton-silk-fit-and-flare-dress";
+							};
+
+							var XFoo = document.registerElement('x-gilt-product', {
+							  prototype: XFooPrototype
+							});
+
+						</script>
+						<x-gilt-product></x-gilt-product>
+					</section>
+
+
+					<section>
+						<p style="font-size:100px;">Some questions I have about Web Components:</p>
+					</section>
+
+
+
+					<section>
+						<p style="font-size:100px;">What is the x- in x-gilt-product?</p>
+					</section>
+
+					<section>
+						<p style="font-size:100px;">How do I pass values to a custom element?</p>
+					</section>
+
+
+					<section>
+						<p style="font-size:100px;">How can I easily share a custom element?</p>
+					</section>
+
+
+					<section>
+						<p style="font-size:100px;">Does this mark the end of Handlebars and other JS templating languages??</p>
+					</section>
+				</section>
+
+
+				<section data-background="white">
+
+					<section>
+						<p style="font-size: 100px; color:black">Wait! I couldn't see the demo!</p>
+					</section>
+
+
+					<section>
+						<p style="font-size: 100px; color:black">Web Components aren't supported by default anywhere, except...</p>
+					</section>
+
+
+					<section>
+						<p style="font-size: 55px; color:black">On Google Chrome Canary</p>
+						<img src="lib/images/Google-Chrome-Canary-icon.png" />
+					</section>
+
+
+					<section>
+						<p style="font-size: 55px; color:black">Mozilla created X-Tag, a small JavaScript library that brings Web Components Custom Element capabilities to all modern browsers.</p>
+						<img src="lib/images/x-tags-support.png" />
+						<p><small>http://x-tags.org/</small></p>
+					</section>
+
+
+					<section>
+						<p style="font-size: 55px; color:black">X-Tags uses a polyfill library called Polymer.</p>
+						<img src="lib/images/polymer.png" />
+						<p><small>https://github.com/Polymer/polymer</small></p>
+					</section>
+
+
+					<section>
+						<p style="font-size: 55px; color:black">X-Tags example: Panel</p>
+						<img src="lib/images/x-tags-panel.png" />
+						<p style="color:black;"><small>http://x-tags.org/</small></p>
+					</section>
+
+
+					<section>
+						<p style="font-size: 55px; color:black">X-Tags example: Map</p>
+						<img src="lib/images/x-tags-maps.png" />
+						<p style="color:black;"><small>http://x-tags.org/</small></p>
+					</section>
+
+					<section>
+						<p style="font-size:100px; color:black;">http://customelements.io/</p>
+					</section>
+
+
+					<section>
+						<p style="font-size: 100px; color:black">But, Web Components may change before Google releases it.</p>
+					</section>
+
+
+					<section>
+						<img src="lib/images/tab-tweet.png" />
+					</section>
+
+
+					<section>
+						<p style="font-size: 100px; color:black">You just wasted my time!</p>
+					</section>
+
+
+					<section>
+						<p style="font-size: 100px; color:black">Why should I care?</p>
+					</section>
+
+
+					<section>
+						<p style="font-size: 65px; color:black">And how does this frame how I think about design and engineering the mobile web?</p>
+					</section>
+
+
+					<section>
+						<p style="font-size: 65px; color:black">Web Components is trying to solve for the same problem that Card UI is trying to solve. Except, it is solving it from an engineering perspective in addition to design perspective.</p>
+					</section>
+
+
+					<section>
+						<p style="font-size: 65px; color:black">Using Web Components will only encourage us to better think about the characteristics of Card UI.</p>
+						<ol>
+							<li style="color:black">How do I make something simple to consume?</li>
+							<li style="color:black">How do I choose what to display?</li>
+							<li style="color:black">How can I share this with others?</li>
+						</ol>
+					</section>
+
+
+					<section>
+						<p style="font-size: 65px; color:black">It also means we can start to think about a responsive Card UI design pattern.</p>
+					</section>
+
+					<section>
+						<p style="font-size: 65px; color:black">Instead of thinking about how to make a PAGE responsive, we can begin to think about how to make individual COMPONENTS responsive.</p>
+					</section>
+
+
+					<section>
+						<p style="font-size: 65px; color:black">In the context of mobile, we want our mobile web experiences to show the minimum number of things to create the best user experience.</p>
+					</section>
+				</section>
+
+				<section data-background="beige">
+
+						<script>
+							var XFooPrototype = Object.create(HTMLElement.prototype);
+
+							XFooPrototype.createdCallback = function() {
+								var template = document.getElementById("gilt-product");
+								var clone = document.importNode(template.content, true);
+								document.querySelector('.live-demo-two').appendChild(clone);
+
+								var b = document.querySelector('.live-demo-two .demo-brand');
+							    b.textContent = "Paper Crown"; // 2. Modify template's DOM at runtime.
+
+							    var n = document.querySelector('.live-demo-two .demo-title');
+							    n.textContent = "Villa Cotton Silk Fit and Flare Dress";
+
+							    var imgSrc = document.querySelector('.live-demo-two .demo-url');
+							    imgSrc.src = "http://cdn.gilt.com/images/share/uploads/0000/0003/0305/303051398/list.jpg";
+
+							    var p = document.querySelector('.live-demo-two .demo-price');
+							    p.textContent = "$129";
+
+							    var a = document.querySelector('.live-demo-two .demo-product-url');
+							    a.href = "http://www.gilt.com/sale/women/paper-crown-9763/product/1020186005-paper-crown-villa-cotton-silk-fit-and-flare-dress";
+							};
+
+							var XFoo = document.registerElement('x-gilt-product-two', {
+							  prototype: XFooPrototype
+							});
+
+						</script>
+					<section class="live-demo-two">
+						<h3 style="color:brown">If we can represent this:</h3>
+						<x-gilt-product-two></x-gilt-product-two>
+					</section>
+
+
+					<section>
+						<h3 style="color:brown">With this:</h3>
+						<code style="color:black">&lt;x-gilt-product&gt;&lt;/x-gilt-product&gt;</code>
+					</section>
+
+
+					<section>
+						<h3 style="color:brown">Then we can think about using this:</h3>
+						<pre style="color:black; background:white; padding: 20px; font-size:45px; width:100%;">
+&lt;x-gilt-navigation&gt;&lt;/x-gilt-navigation&gt;
+&lt;x-gilt-hero&gt;&lt;/x-gilt-hero&gt;
+&lt;x-gilt-sale&gt;
+  &lt;x-gilt-product&gt;&lt;/x-gilt-product&gt;
+  &lt;x-gilt-product&gt;&lt;/x-gilt-product&gt;
+  &lt;x-gilt-product&gt;&lt;/x-gilt-product&gt;
+&lt;/x-gilt-sale&gt;
+&lt;x-gilt-footer&gt;&lt;/x-gilt-footer&gt;
+						</pre>
+					</section>
+
+
+					<section>
+						<h3 style="color:brown">To represent this:</h3>
+						<img src="lib/images/gilt-full-web-01.png" />
+					</section>
+
+
+					<section>
+						<h3 style="color:brown">Or this:</h3>
+						<pre style="color:black; background:white; padding: 20px; font-size:45px; width:100%;">
+&lt;x-gmw-navigation&gt;&lt;/x-gmw-navigation&gt;
+&lt;x-gilt-sale&gt;
+	&lt;x-gmw-product&gt;&lt;/x-gmw-product&gt;
+	&lt;x-gmw-product&gt;&lt;/x-gmw-product&gt;
+	&lt;x-gmw-product&gt;&lt;/x-gmw-product&gt;
+&lt;/x-gilt-sale&gt;
+&lt;x-gmw-footer&gt;&lt;/x-gmw-footer&gt;
+						</pre>
+					</section>
+
+
+					<section>
+						<h3 style="color:brown">To represent this:</h3>
+						<img src="lib/images/gilt-mobile-web-dogs.png" />
+					</section>
+
+
+					<section>
+						<p style="color:brown; font-size:100px;">where each Web Component is like an item in an apartment</p>
+					</section>
+
+
+					<section>
+						<p style="color:brown; font-size:100px;">you design the best individual pieces that you can</p>
+					</section>
+
+
+					<section>
+						<p style="color:brown; font-size:100px;">so that they are reusable, embeddable, and shareable</p>
+					</section>
+
+
+					<section>
+						<p style="color:brown; font-size:100px;">with the goal that your mobile web user experiences start to look like this:</p>
+					</section>
+
+
+					<section>
+						<img src="lib/images/good-bad-01.png" />
+					</section>
+					<section>
+						<img src="lib/images/good-bad-02.png" />
+					</section>
+
+					<section>
+						<img src="lib/images/good-03.png" />
+					</section>
+
+					<section>
+						<img src="lib/images/good-04.png" />
+					</section>
+
+					<section>
+						<img src="lib/images/good-05.png" />
+					</section>
+
+
+					<section>
+						<p style="color:brown">Small space, beautiful components.</p>
+						<img src="lib/images/apartment-small-02.jpeg" />
+						<p><small><a style="color:brown" href="http://www.apartmenttherapy.com/garretts-everything-every-day-small-cool-contest-189922">Garrett's 340 square foot apartment</a></small></p>
+					</section>
+				</section>
+
+
+				<section data-background="black">
+					<section>
+						<p style="font-size:100px;">In conclusion</p>
+					</section>
+					<section>
+						<p style="font-size:100px;">Furnishing a studio apartment is to mobile web what furnishing a large apartment is to the desktop experience.</p>
+					</section>
+					<section>
+						<p style="font-size:100px;">Card UI is a design pattern to get you to think quick and simple.</p>
+					</section>
+					<section>
+						<p style="font-size:100px;">And, Web Components will allow you to easily package "cards" in the future.</p>
+					</section>
+					<section>
+						<h1>Thanks!</h1>
+						<ul>
+							<li>gmazurek@gilt.com</li>
+							<li>gregorymazurek.com</li>
+							<li>download these slides on Github: GregM</li>
+							<li>@gregorymazurek</li>
+						</ul>
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				backgroundTransition: 'slide',
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+		<script>
+	        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	        ga('create', 'UA-9946031-1', 'gregorymazurek.com');
+	        ga('send', 'pageview');
+	    </script>
+	</body>
+</html>
