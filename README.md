@@ -8,4 +8,4 @@ This presentation was created with [Reveal.js](https://github.com/hakimel/reveal
 
 Please do not reuse videos or images without permission.
 
-[Please feel free to share presentation with others](http://gregorymazurek.com/presentation-mobile-web-ny-css-meetup)
+[Please feel free to share presentation with others](http://www.gregorymazurek.com/interior-design-for-the-mobile-web/#/)

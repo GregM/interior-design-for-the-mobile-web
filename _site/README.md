@@ -1,4 +1,4 @@
-# The Mobile Web & Web Components
+# Interior Design For The Mobile Web
 
 ## February 25, 2014, NY CSS Meetup @ Gilt Groupe HQ
 
